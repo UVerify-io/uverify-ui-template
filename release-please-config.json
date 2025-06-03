@@ -1,0 +1,19 @@
+{
+  "packages": {
+    "packages/cli": {
+      "package-name": "@uverify/cli",
+      "component": "cli"
+    },
+    "packages/core": {
+      "package-name": "@uverify/core",
+      "component": "core"
+    }
+  },
+  "release-type": "node",
+  "monorepo-tags": true,
+  "plugins": [
+    {
+      "type": "npm-workspace"
+    }
+  ]
+}
