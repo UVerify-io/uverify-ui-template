@@ -1,0 +1,27 @@
+{
+  "name": "@uverify/core",
+  "version": "0.1.0",
+  "author": "Fabian Bormann",
+  "license": "Apache-2.0",
+  "description": "Shared core functions and basic types for the UVerify ecosystem.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "uverify",
+    "shared",
+    "utilities",
+    "typescript"
+  ],
+  "devDependencies": {
+    "@types/react": "^19.1.6",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "dist"
+  ]
+}

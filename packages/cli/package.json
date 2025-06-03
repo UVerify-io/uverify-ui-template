@@ -1,0 +1,30 @@
+{
+  "name": "@uverify/cli",
+  "version": "1.0.0",
+  "description": "CLI tool to scaffold custom UVerify certificate UIs.",
+  "license": "Apache-2.0",
+  "bin": {
+    "uverify": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc && npm run copy-blueprint && npm run update-blueprint",
+    "copy-blueprint": "rsync -av --exclude=package-lock.json --exclude=node_modules ../blueprint/ dist/blueprint",
+    "update-blueprint": "node scripts/blueprint.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "commander": "^14.0.0",
+    "fs-extra": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.15.27",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module"
+}
