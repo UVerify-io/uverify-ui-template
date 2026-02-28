@@ -39,7 +39,7 @@ jobs:
         run: npm run build
 
       - name: 🚀 Publish to npm (OIDC only)
-        working-directory: ./typescript
+        working-directory: ./packages/core
         env:
           NPM_CONFIG_USERCONFIG: /dev/null
         run: |
