@@ -12,34 +12,40 @@ jobs:
     if: "github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, 'release-please--branches--main')"
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: 📥 Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.14.0'
+          registry-url: https://registry.npmjs.org
           cache: 'npm'
+          cache-dependency-path: typescript/package-lock.json
+
+      - name: ⬆️ Ensure npm supports Trusted Publishing
+        run: npm i -g npm@^11.5.1
 
       - name: 📦 Install Dependencies
         working-directory: ./packages/cli
-        run: npm install
+        run: npm ci
 
       - name: 🛠️ Build the Project
         working-directory: ./packages/cli
         run: npm run build
 
-      - name: 🔐 Authenticate with npm
+      - name: 🚀 Publish to npm (OIDC only)
+        working-directory: ./typescript
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
-      - name: 🚀 Publish to npm
-        working-directory: ./packages/cli
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+          NPM_CONFIG_USERCONFIG: /dev/null
+        run: |
+          unset NODE_AUTH_TOKEN NPM_TOKEN
+          npm publish --provenance --access public
 
       - name: ✅ Verify Published Package
         run: npm info @uverify/cli

@@ -146,3 +146,9 @@ export declare interface UVerifyCertificate {
 }
 
 export type UVerifyMetadata = Record<string, string | number | boolean | null>;
+
+export type UVerifyConfig = {
+  searchParams: URLSearchParams;
+  networkType: string;
+  backendUrl: string;
+};

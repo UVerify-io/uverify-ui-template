@@ -3,6 +3,7 @@ import {
   ThemeSettings,
   UVerifyCertificate,
   UVerifyCertificateExtraData,
+  UVerifyConfig,
   UVerifyMetadata,
 } from './types/index.js';
 
@@ -14,14 +15,16 @@ export abstract class Template {
   public theme: Partial<ThemeSettings>;
   public layoutMetadata: { [key: string]: string };
   public name: string;
+  public uverifyConfig?: UVerifyConfig;
 
-  constructor() {
+  constructor(uverifyConfig?: UVerifyConfig) {
     this.whitelist = '*';
     this.theme = {
       background: 'bg-main-gradient',
     };
     this.layoutMetadata = {};
     this.name = 'Default';
+    this.uverifyConfig = uverifyConfig;
   }
 
   public isWhitelisted(address?: string) {
@@ -49,6 +52,6 @@ export abstract class Template {
     metadata: UVerifyMetadata,
     certificate: UVerifyCertificate | undefined,
     pagination: JSX.Element,
-    extra: UVerifyCertificateExtraData
+    extra: UVerifyCertificateExtraData,
   ): JSX.Element;
 }
