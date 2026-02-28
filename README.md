@@ -32,6 +32,46 @@ Ready to create your own UVerify UI template? Follow these steps:
 
 4. Customize your UI by following the instructions in the `README.md` file inside the `my-template` directory.
 
+## 📦 Registering Your Template
+
+### Local development
+
+Add a `file` entry to `additional-templates.json` in your `uverify-ui` checkout:
+
+```json
+[
+  {
+    "type": "file",
+    "name": "MyTemplate",
+    "path": "../my-template/src/Certificate.tsx"
+  }
+]
+```
+
+Then run `node config.js` in the `uverify-ui` directory to regenerate the template registry, and start the dev server.
+
+### Publishing to app.uverify.io
+
+To include your template in the standard deployment at [app.uverify.io](https://app.uverify.io):
+
+1. Push your template to a public GitHub repository.
+2. Open an **Add External Template** issue in [`uverify-ui`](https://github.com/UVerify-io/uverify-ui), providing the repository URL, the exact commit hash, and evidence that you have tested the template locally.
+3. Once the security review is complete, a maintainer will open (or accept your) pull request adding a `repository` entry to `additional-templates.json`.
+
+```json
+[
+  {
+    "type": "repository",
+    "name": "MyTemplate",
+    "url": "https://github.com/your-org/my-template",
+    "commit": "a3f1c2d4e5b6...",
+    "path": "src/Certificate.tsx"
+  }
+]
+```
+
+The `commit` hash pins the exact revision used in the build, making the inclusion fully auditable.
+
 ## 🤝 Contributing
 
 We welcome contributions of all kinds! Whether it's fixing bugs, adding new features, or improving documentation, your help is greatly appreciated. To contribute:
