@@ -1,10 +1,12 @@
 import { JSX } from 'react';
 import {
+  BuildTransactionParams,
   ThemeSettings,
   UVerifyCertificate,
   UVerifyCertificateExtraData,
   UVerifyConfig,
   UVerifyMetadata,
+  UpdatePolicy,
 } from './types/index.js';
 
 export const UVERIFY_CORE_VERSION = '0.1.0';
@@ -16,6 +18,28 @@ export abstract class Template {
   public layoutMetadata: { [key: string]: string };
   public name: string;
   public uverifyConfig?: UVerifyConfig;
+
+  /**
+   * Default update policy applied when no on-chain `uverify_update_policy`
+   * metadata key is present. Defaults to `'append'` when not set.
+   */
+  public defaultUpdatePolicy?: UpdatePolicy;
+
+  /**
+   * List of backend extension names that must be reachable for this template
+   * to appear in the template selector.
+   * Each entry is checked via `GET /api/v1/extension/{name}` — a 200 response
+   * means the extension is enabled.
+   */
+  public requiredBackendExtensions?: string[];
+
+  /**
+   * Optional custom transaction builder. When defined, the Creation page calls
+   * this method instead of the standard `/api/v1/transaction/build` endpoint.
+   * The method must resolve to the unsigned transaction CBOR hex string, or
+   * throw an error on failure.
+   */
+  public buildTransaction?: (params: BuildTransactionParams) => Promise<string>;
 
   constructor(uverifyConfig?: UVerifyConfig) {
     this.whitelist = '*';

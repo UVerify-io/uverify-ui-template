@@ -152,3 +152,27 @@ export type UVerifyConfig = {
   networkType: string;
   backendUrl: string;
 };
+
+export type UpdatePolicy =
+  | 'append'
+  | 'first'
+  | 'override'
+  | 'restricted'
+  | 'whitelist'
+  | 'accumulate'
+  | 'frozen';
+
+export type BuildTransactionParams = {
+  // Bech32 wallet address of the signer / fee payer
+  address: string;
+  // SHA-256 (or SHA3-256) hash of the content being certified
+  hash: string;
+  // Key-value metadata that will be attached on-chain
+  metadata: Record<string, unknown>;
+  // Bootstrap token name required by the UVerify state contract, if any
+  bootstrapTokenName?: string;
+  // Base URL of the UVerify backend, e.g. `https://api.uverify.io`
+  backendUrl: string;
+  // Current page search params: templates may read config values from here
+  searchParams: URLSearchParams;
+};
