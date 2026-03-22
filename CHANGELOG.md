@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/UVerify-io/uverify-ui-template/compare/v1.1.0...v1.2.0) (2026-03-19)
+
+
+### Features
+
+* adding default update policy, required backend extensions and custom transaction buider to the template interface ([0a6418a](https://github.com/UVerify-io/uverify-ui-template/commit/0a6418a3e88b4f78d66e20b587e35c86ec475023))
+
 ## [1.1.0](https://github.com/UVerify-io/uverify-ui-template/compare/v1.0.0...v1.1.0) (2026-02-28)
 
 
