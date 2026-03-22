@@ -13,7 +13,7 @@
   "monorepo-tags": true,
   "plugins": [
     {
-      "type": "npm-workspace"
+      "type": "node-workspace"
     }
   ]
 }
