@@ -1,6 +1,6 @@
 {
   "name": "@uverify/cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "CLI tool to scaffold custom UVerify certificate UIs.",
   "license": "Apache-2.0",
   "bin": {
