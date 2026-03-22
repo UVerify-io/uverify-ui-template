@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/UVerify-io/uverify-ui-template/compare/v1.2.0...v1.2.1) (2026-03-22)
+
+
+### Bug Fixes
+
+* repair npm lock file ([2335662](https://github.com/UVerify-io/uverify-ui-template/commit/2335662e406f93bb9648bce4e9f7ec78c6c0ad97))
+
 ## [1.2.0](https://github.com/UVerify-io/uverify-ui-template/compare/v1.1.0...v1.2.0) (2026-03-19)
 
 
