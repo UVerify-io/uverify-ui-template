@@ -34,6 +34,14 @@ export abstract class Template {
   public requiredBackendExtensions?: string[];
 
   /**
+   * List of credential types the issuer's wallet must hold for this template
+   * to be rendered. Checked at display time via
+   * `GET /api/v1/credential/{issuer}?type={credentialType}`.
+   * If any required credential is absent, the default template is used instead.
+   */
+  public requiredCredentials?: string[];
+
+  /**
    * Optional custom transaction builder. When defined, the Creation page calls
    * this method instead of the standard `/api/v1/transaction/build` endpoint.
    * The method must resolve to the unsigned transaction CBOR hex string, or
