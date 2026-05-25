@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "src",
     "jsx": "react",
-    "moduleResolution": "node",
+    "moduleResolution": "node10",
+    "ignoreDeprecations": "6.0",
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "declaration": true,

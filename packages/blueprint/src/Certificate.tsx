@@ -58,7 +58,7 @@ class Certificate extends Template {
     metadata: UVerifyMetadata,
     certificate: UVerifyCertificate | undefined,
     pagination: JSX.Element,
-    extra: UVerifyCertificateExtraData
+    extra: UVerifyCertificateExtraData,
   ): JSX.Element {
     if (extra.isLoading) {
       return (

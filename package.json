@@ -5,5 +5,8 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules && cd packages/blueprint && npm run clean && cd ../core && npm run clean && cd ../cli && npm run clean"
+  }
 }
