@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/UVerify-io/uverify-ui-template/compare/core-v1.3.0...core-v1.4.0) (2026-05-25)
+
+
+### Features
+
+* add credential verification and update dependencies ([c1d4aeb](https://github.com/UVerify-io/uverify-ui-template/commit/c1d4aeb8b6a3c97df5311daa65c1694a647d7cd8))
+
+
+### Bug Fixes
+
+* close vulnerabilities and gaps by upgrading all dependencies ([6d26599](https://github.com/UVerify-io/uverify-ui-template/commit/6d26599ca14f83c7b5c6cd6036923e333c85b8d9))
+
 ## [1.3.0](https://github.com/UVerify-io/uverify-ui-template/compare/core-v1.2.1...core-v1.3.0) (2026-03-22)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/UVerify-io/uverify-ui-template/compare/cli-v1.2.0...cli-v1.2.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* close vulnerabilities and gaps by upgrading all dependencies ([6d26599](https://github.com/UVerify-io/uverify-ui-template/commit/6d26599ca14f83c7b5c6cd6036923e333c85b8d9))
+
 ## [1.2.0](https://github.com/UVerify-io/uverify-ui-template/compare/cli-v1.1.0...cli-v1.2.0) (2026-03-22)
 
 
