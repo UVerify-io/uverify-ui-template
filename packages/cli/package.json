@@ -4,7 +4,7 @@
   "description": "CLI tool to scaffold custom UVerify certificate UIs.",
   "license": "Apache-2.0",
   "bin": {
-    "uverify": "./dist/index.js"
+    "uverify": "dist/index.js"
   },
   "scripts": {
     "build": "npm run clean && tsc && npm run copy-blueprint && npm run update-blueprint",
