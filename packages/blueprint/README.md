@@ -82,6 +82,25 @@ type ThemeSettings = {
 
 To override the default theme, just add `public theme: Partial<ThemeSettings> = { ... }` to your class. You can specify any of the properties in the `ThemeSettings` type.
 
+## OG Preview Image
+
+The file `public/og-image.png` is the social preview image for your template. It is shown in link previews on LinkedIn, X, Slack, and similar platforms when someone shares a certificate short link.
+
+Replace it with your own 1200 x 630 pixel PNG before registering the template. When you add your template to `additional-templates.json` in `uverify-ui`, set the `ogImage` field to the path of this file within your repository, for example:
+
+```json
+{
+  "type": "repository",
+  "name": "MyTemplate",
+  "url": "https://github.com/your-org/my-template",
+  "commit": "<full-commit-hash>",
+  "path": "src/Certificate.tsx",
+  "ogImage": "public/og-image.png"
+}
+```
+
+If you omit the `ogImage` field, the default UVerify preview image is used instead.
+
 ### Whitelist Addresses
 
 You can specify a list of whitelisted addresses that are allowed to use this template. If a non-whitelisted address would push a UVerify certificate, using the template id of this template, it wouldn't be rendered as a standard UVerify certificate, as the UVerify ui is doing an issuer check before rendering the certificate. This is useful for custom templates that should only be used by specific addresses.
