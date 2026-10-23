@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/UVerify-io/uverify-ui-template/compare/core-v1.4.0...core-v1.5.0) (2026-10-23)
+
+
+### Features
+
+* let templates require verified credentials ([7ee876a](https://github.com/UVerify-io/uverify-ui-template/commit/7ee876a7109d9890a5c1f331dad3331e97468138))
+
 ## [1.4.0](https://github.com/UVerify-io/uverify-ui-template/compare/core-v1.3.0...core-v1.4.0) (2026-05-25)
 
 
