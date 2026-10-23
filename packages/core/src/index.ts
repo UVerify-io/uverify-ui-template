@@ -38,8 +38,25 @@ export abstract class Template {
    * to be rendered. Checked at display time via
    * `GET /api/v1/credential/{issuer}?type={credentialType}`.
    * If any required credential is absent, the default template is used instead.
+   *
+   * Credential types are self-declared. Any wallet can announce a credential of
+   * any type for itself, so on its own this check only proves that the issuer
+   * announced the credential. Set `requireVerifiedCredentials` to also require
+   * a verified KERI binding.
    */
   public requiredCredentials?: string[];
+
+  /**
+   * When true, every entry in `requiredCredentials` must also report
+   * `keriVerified: true`: the vLEI Verifier authorizes the announced AID and the
+   * AID signed the binding to the issuer's wallet. Deployments without a vLEI
+   * Verifier never report verified credentials, so gated templates fall back to
+   * the default template there.
+   *
+   * `keriVerified` does not prove that the AID holds a credential of the
+   * announced type.
+   */
+  public requireVerifiedCredentials?: boolean;
 
   /**
    * Optional custom transaction builder. When defined, the Creation page calls
