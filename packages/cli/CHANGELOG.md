@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.2](https://github.com/UVerify-io/uverify-ui-template/compare/cli-v1.2.1...cli-v1.2.2) (2026-10-23)
+
+
+### Bug Fixes
+
+* skip already published versions and keep the cli bin entry ([44469c1](https://github.com/UVerify-io/uverify-ui-template/commit/44469c19a5659be3cf052321a8d71571fe5d86eb))
+* skip already published versions and keep the cli bin entry ([acba0e6](https://github.com/UVerify-io/uverify-ui-template/commit/acba0e6b0bcb1ef7f1b8253df5ca41d1ac534859))
+
 ## [1.2.1](https://github.com/UVerify-io/uverify-ui-template/compare/cli-v1.2.0...cli-v1.2.1) (2026-05-25)
 
 
