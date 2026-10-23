@@ -30,15 +30,29 @@ jobs:
       - name: ⬆️ Ensure npm supports Trusted Publishing
         run: npm i -g npm@^11.5.1
 
+      # Every release-please merge triggers this workflow, also when only the other package was released.
+      - name: 🔎 Skip if this version is already on npm
+        id: published
+        working-directory: ./packages/cli
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@uverify/cli@$VERSION" version > /dev/null 2>&1; then
+            echo "@uverify/cli@$VERSION is already published, skipping"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 📦 Install Dependencies
+        if: steps.published.outputs.exists != 'true'
         working-directory: ./packages/cli
         run: npm ci
 
       - name: 🛠️ Build the Project
+        if: steps.published.outputs.exists != 'true'
         working-directory: ./packages/cli
         run: npm run build
 
       - name: 🚀 Publish to npm (OIDC only)
+        if: steps.published.outputs.exists != 'true'
         working-directory: ./packages/cli
         env:
           NPM_CONFIG_USERCONFIG: /dev/null
@@ -47,4 +61,5 @@ jobs:
           npm publish --provenance --access public
 
       - name: ✅ Verify Published Package
+        if: steps.published.outputs.exists != 'true'
         run: npm info @uverify/cli
